@@ -28,7 +28,7 @@ CREATE TABLE "course_videos" (
   "name" varchar NOT NULL,
   "description" varchar NOT NULL,
   "duration" integer NOT NULL,
-  "course_id" serial,
+  "course_id" integer,
   "url" text NOT NULL
 );
 
@@ -39,14 +39,14 @@ CREATE TABLE "categories" (
 
 CREATE TABLE "course_categories" (
   "id" serial PRIMARY KEY,
-  "course_id" serial,
-  "categories_id" serial
+  "course_id" integer,
+  "categories_id" integer
 );
 
 CREATE TABLE "users_courses" (
   "id" serial PRIMARY KEY,
   "user_id" uuid,
-  "course_id" serial
+  "course_id" integer
 );
 
 ALTER TABLE "course_videos" ADD FOREIGN KEY ("course_id") REFERENCES "courses" ("id");
